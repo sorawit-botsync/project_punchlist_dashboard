@@ -1,0 +1,122 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Power Automate & SharePoint Punchlist Integration Schemas",
+  "description": "These schemas represent the upgraded JSON triggers recommended for your Power Automate flows to support a high-end customer success punchlist dashboard.",
+  "create_punchlist_item_schema": {
+    "type": "object",
+    "properties": {
+      "title": {
+        "type": "string",
+        "description": "Short summary of the issue (required)"
+      },
+      "description": {
+        "type": "string",
+        "description": "Detailed explanation of the issue, error logs, and layout coordinates (required)"
+      },
+      "status": {
+        "type": "string",
+        "enum": [
+          "Open",
+          "In Progress",
+          "Closed"
+        ],
+        "default": "Open",
+        "description": "Current lifecycle status"
+      },
+      "task_owner": {
+        "type": "string",
+        "description": "Assigned engineer name or email address"
+      },
+      "target_closed_date": {
+        "type": "string",
+        "format": "date",
+        "description": "Target resolution date (YYYY-MM-DD)"
+      },
+      "priority": {
+        "type": "string",
+        "enum": [
+          "Low",
+          "Medium",
+          "High",
+          "Critical"
+        ],
+        "default": "Medium",
+        "description": "SLA priority level"
+      },
+      "category": {
+        "type": "string",
+        "enum": [
+          "Software",
+          "Hardware",
+          "Safety",
+          "Network",
+          "Other"
+        ],
+        "default": "Other",
+        "description": "Domain category classification"
+      },
+      "reported_by": {
+        "type": "string",
+        "description": "Client contact or inspector reporting the issue"
+      },
+      "note": {
+        "type": "string",
+        "description": "Initial Note"
+      }
+    },
+    "required": [
+      "title",
+      "description"
+    ]
+  },
+  "update_punchlist_item_schema": {
+    "type": "object",
+    "properties": {
+      "id": {
+        "type": "integer",
+        "description": "SharePoint list item unique ID (required)"
+      },
+      "status": {
+        "type": "string",
+        "enum": [
+          "Open",
+          "In Progress",
+          "Closed"
+        ],
+        "description": "Updated lifecycle status"
+      },
+      "task_owner": {
+        "type": "string",
+        "description": "Updated assignee email or name"
+      },
+      "priority": {
+        "type": "string",
+        "enum": [
+          "Low",
+          "Medium",
+          "High",
+          "Critical"
+        ],
+        "description": "Updated SLA priority level"
+      },
+      "category": {
+        "type": "string",
+        "enum": [
+          "Software",
+          "Hardware",
+          "Safety",
+          "Network",
+          "Other"
+        ],
+        "description": "Updated classification"
+      },
+      "note": {
+        "type": "string",
+        "description": "Updated Note"
+      }
+    },
+    "required": [
+      "id"
+    ]
+  }
+}
