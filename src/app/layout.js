@@ -12,8 +12,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "Botsync Punchlist Command Center",
-  description: "High-End Customer Success Issue Management Dashboard for AMR Fleet Commissioning",
+  title: "Project Punchlists",
+  description: "Dashboard for tracking and managing project punchlists",
 };
 
 export default function RootLayout({ children }) {
